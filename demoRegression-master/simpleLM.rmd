@@ -1,7 +1,7 @@
 ---
 title: "simpleRegress"
 author: "Kayleen Hernandez"
-date: "Fall 2021"
+date: "11-02-2021"
 output: html_document
 ---
 
@@ -32,7 +32,7 @@ summary.lm(simp)
 
 Neck is a variable for determining a bears length had adjusted R- square score of 0.7476
 
-The scatter plot shows that as neck size goes up, Length does as well, therefore neck size is a good predictor to determine length. 
+The scatter plot shows that as neck size goes up, Length does as well, therefore neck size is a good predictor to determine length of the bear. 
 
 ## now predict the length of a bear who has a neck of 17, 22 and 26
 
@@ -55,38 +55,26 @@ the correlation coefficient
 
 
 ```{r}
-simp <- lm(LENGTH~WEIGHT,data=bears)
-plot(LENGTH~WEIGHT,data=bears)
-abline(simp)
-summary.lm(simp)
-``` 
-
-```{r}
 simp <- lm(LENGTH~CHEST,data=bears)
 plot(LENGTH~CHEST,data=bears)
 abline(simp)
 summary.lm(simp)
 ``` 
 
-Chest is a variable for determining a bears length had adjusted R- squared of 0.7476
+CHEST as a variable for determining a bears length and adjusted R- square score of 0.7869
 
-The scatter plot shows that as chest size goes up length does as well therefore chest size is a good predictor to determine the length of a bear. 
+The scatter plot shows that as CHEST size goes up, length does as well, therefore CHEST size is a good predictor to determine the length of a bear. 
 
 
-## Numerical summary 
-
+## Numerical Summary 
 
 ```{r}
 cor(bears$LENGTH,bears$CHEST)
 ```
-
-
-the correlation coefficient
+The correlation coefficient 
 
 ## Conclusion
 
-chest had an adjusted r squared score of 
+Chest had an adjusted r squared score of 0.7869 while NECK had an adjusted r squared score of 0.7476
 
-
-
-Chest is a better variable to use to predict for the length of bears because the adjusted r squared test shows for chest is at 0.7869. The adjusted R squared of the fit for NECK. 
+Chest is a better predictor of lenght than neck is because the adjusted r squared of the fir for CHEST was larger than the adjusted R squared of the fit for NECK
