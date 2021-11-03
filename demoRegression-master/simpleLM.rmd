@@ -9,13 +9,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+## Introduction
+
+We are comparing the variables chest and the variable Neck to see what variable is better at determining length.
+
+
 ## make a simple regression model
 
 ```{r}
 bears <- read.csv(file="BEARS.csv",header = TRUE)
 ```
 
-## Model LENGTH ~ NECK  this is an example  
+## Model LENGTH ~ NECK  
 
 ```{r}
 simp <- lm(LENGTH~NECK,data=bears)
@@ -23,6 +29,10 @@ plot(LENGTH~NECK,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
+
+Neck is a variable for determining a bears length had adjusted R- square score of 0.7476
+
+The scatter plot shows that as neck size goes up, Length does as well, therefore neck size is a good predictor to determine length. 
 
 ## now predict the length of a bear who has a neck of 17, 22 and 26
 
@@ -38,7 +48,7 @@ predict(simp,new,se.fit=TRUE,interval = "prediction")
 ```{r}
 cor(bears$LENGTH,bears$NECK)
 ```
-
+the correlation coefficient
 
 
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
@@ -58,3 +68,25 @@ abline(simp)
 summary.lm(simp)
 ``` 
 
+Chest is a variable for determining a bears length had adjusted R- squared of 0.7476
+
+The scatter plot shows that as chest size goes up length does as well therefore chest size is a good predictor to determine the length of a bear. 
+
+
+## Numerical summary 
+
+
+```{r}
+cor(bears$LENGTH,bears$CHEST)
+```
+
+
+the correlation coefficient
+
+## Conclusion
+
+chest had an adjusted r squared score of 
+
+
+
+Chest is a better variable to use to predict for the length of bears because the adjusted r squared test shows for chest is at 0.7869. The adjusted R squared of the fit for NECK. 
